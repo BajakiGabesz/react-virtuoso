@@ -14,19 +14,11 @@ import type {
   TableComponents,
   StateSnapshot,
   StateCallback,
+  GroupItemContent,
 } from '../interfaces'
 import type { VirtuosoProps } from './Virtuoso'
 
 export interface TableVirtuosoProps<D, C> extends Omit<VirtuosoProps<D, C>, 'components' | 'headerFooterTag' | 'topItemCount'> {
-  /**
-   * Specifies the amount of items in each group (and, actually, how many groups are there).
-   * For example, passing [20, 30] will display 2 groups with 20 and 30 items each.
-   */
-  groupCounts?: number[]
-  /**
-   * Specifies how each each group header gets rendered. The callback receives the zero-based index of the group.
-   */
-  groupContent?: GroupContent
   /**
    * Use the `components` property for advanced customization of the elements rendered by the table.
    */
@@ -232,6 +224,24 @@ export interface TableVirtuosoProps<D, C> extends Omit<VirtuosoProps<D, C>, 'com
    * This is useful when you want to keep the list state when the component is unmounted and remounted, for example when navigating to a different page.
    */
   restoreStateFrom?: StateSnapshot
+}
+
+export interface GroupedTableVirtuosoProps<D, C> extends Omit<TableVirtuosoProps<D, C>, 'totalCount' | 'itemContent'> {
+  /**
+   * Specifies the amount of items in each group (and, actually, how many groups are there).
+   * For example, passing [20, 30] will display 2 groups with 20 and 30 items each.
+   */
+  groupCounts?: number[]
+
+  /**
+   * Specifies how each each group header gets rendered. The callback receives the zero-based index of the group.
+   */
+  groupContent?: GroupContent
+
+  /**
+   * Specifies how each each item gets rendered.
+   */
+  itemContent?: GroupItemContent<D, C>
 }
 
 export interface TableVirtuosoHandle {
