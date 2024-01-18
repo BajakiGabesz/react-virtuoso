@@ -236,7 +236,7 @@ export interface GroupedTableVirtuosoProps<D, C> extends Omit<TableVirtuosoProps
   /**
    * Specifies how each each group header gets rendered. The callback receives the zero-based index of the group.
    */
-  groupContent?: GroupContent
+  groupContent?: GroupContent<C>
 
   /**
    * Specifies how each each item gets rendered.

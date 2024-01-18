@@ -179,7 +179,7 @@ export interface TableComponents<Data = unknown, Context = unknown> {
   /**
    * Set to customize the group item wrapping element. Use only if you would like to render list from elements different than a `div`.
    */
-  Group?: ComponentType<GroupProps & { context?: Context }>
+  Group?: React.ComponentType<GroupProps & { context?: Context }>
 
   /**
    * Set to render a custom UI when the list is empty.

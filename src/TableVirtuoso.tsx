@@ -1,6 +1,7 @@
 import { systemToComponent } from './react-urx'
 import * as u from './urx'
-import { createElement, FC, PropsWithChildren, ReactElement, Ref, useContext, memo, useState, useEffect, Fragment } from 'react'
+import React from 'react'
+import { FC, Fragment, PropsWithChildren, ReactElement, Ref, createElement, memo, useContext, useEffect, useState } from 'react'
 import useChangedListContentsSizes from './hooks/useChangedChildSizes'
 import {
   ComputeItemKey,
@@ -35,7 +36,7 @@ const tableComponentPropsSystem = /*#__PURE__*/ u.system(() => {
   const context = u.statefulStream<unknown>(null)
   const fixedHeaderContent = u.statefulStream<FixedHeaderContent>(null)
   const fixedFooterContent = u.statefulStream<FixedFooterContent>(null)
-  const groupContent = u.statefulStream<GroupContent>((index: number) => <td>Group {index}</td>)
+  const groupContent = u.statefulStream<GroupContent<unknown>>((index: number) => <td>Group {index}</td>)
   const components = u.statefulStream<TableComponents>({})
   const computeItemKey = u.statefulStream<ComputeItemKey<any, unknown>>(identity)
   const scrollerRef = u.statefulStream<(ref: HTMLElement | Window | null) => void>(u.noop)
@@ -175,7 +176,7 @@ const Items = /*#__PURE__*/ memo(function VirtuosoItems({ showTopList = false }:
           'data-item-index': item.index,
           style: GROUP_STYLE,
         },
-        groupContent(item.index)
+        groupContent(item.index, context)
       )
     }
 
