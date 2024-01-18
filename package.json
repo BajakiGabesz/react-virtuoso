@@ -2,7 +2,7 @@
   "name": "@bajakigabesz/react-virtuoso",
   "author": "Petyo Ivanov",
   "sideEffects": false,
-  "version": "4.6.3-development",
+  "version": "4.6.4-development",
   "homepage": "https://virtuoso.dev/",
   "license": "MIT",
   "source": "src/index.tsx",
@@ -114,6 +114,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/petyosi/react-virtuoso.git"
+    "url": "https://github.com/bajakigabesz/react-virtuoso.git"
   }
 }

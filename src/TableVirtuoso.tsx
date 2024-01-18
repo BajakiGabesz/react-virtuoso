@@ -27,7 +27,7 @@ import useSize from './hooks/useSize'
 import { correctItemSize } from './utils/correctItemSize'
 import useWindowViewportRectRef from './hooks/useWindowViewportRect'
 import { VirtuosoMockContext } from './utils/context'
-import { TableVirtuosoHandle, TableVirtuosoProps } from './component-interfaces/TableVirtuoso'
+import { GroupedTableVirtuosoProps, TableVirtuosoHandle, TableVirtuosoProps } from './component-interfaces/TableVirtuoso'
 
 const GROUP_STYLE = { position: positionStickyCssValue(), zIndex: 1, overflowAnchor: 'none' } as const
 
@@ -371,4 +371,8 @@ const WindowScroller = /*#__PURE__*/ buildWindowScroller({ usePublisher, useEmit
 
 export const TableVirtuoso = Table as <ItemData = any, Context = any>(
   props: TableVirtuosoProps<ItemData, Context> & { ref?: Ref<TableVirtuosoHandle> }
+) => ReactElement
+
+export const GroupedTableVirtuoso = Table as <ItemData = any, Context = any>(
+  props: GroupedTableVirtuosoProps<ItemData, Context> & { ref?: Ref<TableVirtuosoHandle> }
 ) => ReactElement
